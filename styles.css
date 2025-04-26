@@ -13,7 +13,8 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 20px;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .overlay {
@@ -25,6 +26,7 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    overflow: auto;
 }
 
 .login-box {
@@ -83,7 +85,7 @@ body {
 .container {
     width: 100%;
     max-width: 400px;
-    max-height: 100vh;
+    max-height: none;
     padding: 25px;
     border: 2px solid #fc0;
     background-color: #0f0f0f;
@@ -93,6 +95,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    overflow: visible;
 }
 
 .header {
@@ -299,4 +302,15 @@ button:disabled {
     background-color: #c00 !important;
     color: #fff !important;
     border: none !important;
+}
+
+@media (max-width: 500px) {
+    .container {
+        max-width: 98vw;
+        padding: 10px;
+    }
+    .header-image {
+        width: 100px;
+        height: 100px;
+    }
 } 
