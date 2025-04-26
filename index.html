@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Live Signal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="overlay" id="overlay">
+        <div class="login-box">
+            <h2>ENTER A SPECIAL CODE TO USE<br>THE APPLICATION</h2>
+            <input id="codeInput" placeholder="Enter Code" type="password">
+            <button onclick="checkCode()">UNBLOCK</button>
+        </div>
+    </div>
+
+    <div class="container" id="mainContent">
+        <div class="header">
+            <img src="./logo.png" alt="OneClick Logo" class="header-image">
+            <h1>LIVE SIGNAL</h1>
+            <p class="copyright">Copyright @OneClickYt</p>
+        </div>
+
+        <div class="controls">
+            <select id="broker-select">
+                <option value="" disabled selected>SELECT BROKER</option>
+                <option value="quotex">Quotex</option>
+                <option value="pocketoption">Pocket Option</option>
+                <option value="iqoption">IQ Option</option>
+                <option value="expertoption">Expert Option</option>
+                <option value="binarycent">BinaryCent</option>
+                <option value="binomo">Binomo</option>
+                <option value="olymptrade">Olymptrade</option>
+                <option value="raceoption">RaceOption</option>
+                <option value="binary">Binary.com</option>
+                <option value="deriv">Deriv</option>
+            </select>
+
+            <select id="asset-select">
+                <option value="" disabled selected>SELECT ASSET</option>
+                <option value="AUDCAD_otc">AUD/CAD (OTC)</option>
+                <option value="AUDCHF_otc">AUD/CHF (OTC)</option>
+                <option value="AUDJPY_otc">AUD/JPY (OTC)</option>
+                <option value="AUDNZD_otc">AUD/NZD (OTC)</option>
+                <option value="AUDUSD_otc">AUD/USD (OTC)</option>
+                <option value="AXP_otc">American Express (OTC)</option>
+                <option value="BA_otc">Boeing Company (OTC)</option>
+                <option value="BRLUSD_otc">USD/BRL (OTC)</option>
+                <option value="BTCUSD_otc">Bitcoin (OTC)</option>
+                <option value="CADCHF_otc">CAD/CHF (OTC)</option>
+                <option value="CADJPY_otc">CAD/JPY (OTC)</option>
+                <option value="CHFJPY_otc">CHF/JPY (OTC)</option>
+                <option value="EURAUD_otc">EUR/AUD (OTC)</option>
+                <option value="EURCAD_otc">EUR/CAD (OTC)</option>
+                <option value="EURCHF_otc">EUR/CHF (OTC)</option>
+                <option value="EURGBP_otc">EUR/GBP (OTC)</option>
+                <option value="EURJPY_otc">EUR/JPY (OTC)</option>
+                <option value="EURNZD_otc">EUR/NZD (OTC)</option>
+                <option value="EURSGD_otc">EUR/SGD (OTC)</option>
+                <option value="EURUSD_otc">EUR/USD (OTC)</option>
+                <option value="FB_otc">FACEBOOK INC (OTC)</option>
+                <option value="GBPAUD_otc">GBP/AUD (OTC)</option>
+                <option value="GBPCAD_otc">GBP/CAD (OTC)</option>
+                <option value="GBPCHF_otc">GBP/CHF (OTC)</option>
+                <option value="GBPJPY_otc">GBP/JPY (OTC)</option>
+                <option value="GBPNZD_otc">GBP/NZD (OTC)</option>
+                <option value="GBPUSD_otc">GBP/USD (OTC)</option>
+                <option value="INTC_otc">Intel (OTC)</option>
+                <option value="JNJ_otc">Johnson & Johnson (OTC)</option>
+                <option value="JPXJPY">Nikkei 225</option>
+                <option value="MCD_otc">McDonald's (OTC)</option>
+                <option value="MSFT_otc">Microsoft (OTC)</option>
+                <option value="NZDCAD_otc">NZD/CAD (OTC)</option>
+                <option value="NZDCHF_otc">NZD/CHF (OTC)</option>
+                <option value="NZDJPY_otc">NZD/JPY (OTC)</option>
+                <option value="PFE_otc">Pfizer Inc (OTC)</option>
+                <option value="UKBrent_otc">UKBrent (OTC)</option>
+                <option value="USCrude_otc">USCrude (OTC)</option>
+                <option value="USDARS_otc">USD/ARS (OTC)</option>
+                <option value="USDBDT_otc">USD/BDT (OTC)</option>
+                <option value="USDCAD_otc">USD/CAD (OTC)</option>
+                <option value="USDCHF_otc">USD/CHF (OTC)</option>
+                <option value="USDCOP_otc">USD/COP (OTC)</option>
+                <option value="USDDZD_otc">USD/DZD (OTC)</option>
+                <option value="USDEGP_otc">USD/EGP (OTC)</option>
+                <option value="USDIDR_otc">USD/IDR (OTC)</option>
+                <option value="USDINR_otc">USD/INR (OTC)</option>
+                <option value="USDJPY_otc">USD/JPY (OTC)</option>
+                <option value="USDMXN_otc">USD/MXN (OTC)</option>
+                <option value="USDNGN_otc">USD/NGN (OTC)</option>
+                <option value="USDPHP_otc">USD/PHP (OTC)</option>
+                <option value="USDPKR_otc">USD/PKR (OTC)</option>
+                <option value="USDTRY_otc">USD/TRY (OTC)</option>
+                <option value="XAGUSD_otc">Silver (OTC)</option>
+                <option value="XAUUSD_otc">Gold (OTC)</option>
+                <option value="USDZAR_otc">USD/ZAR (OTC)</option>
+            </select>
+
+            <select id="time-select">
+                <option value="" disabled selected>SELECT INTERVAL</option>
+                <option value="1">1 MINUTE</option>
+                <option value="5">5 MINUTES</option>
+                <option value="10">10 MINUTES</option>
+                <option value="15">15 MINUTES</option>
+            </select>
+
+            <div class="signal-display" id="signalDisplay" style="display: none;">
+                <div class="timer-container">
+                    <div id="timer">00:00</div>
+                </div>
+                <button id="direction" class="direction-btn">DIRECTION</button>
+            </div>
+
+            <button class="get-signal" onclick="getSignal()">GET SIGNAL</button>
+            <a href="https://t.me/OneClickYT" target="_blank">
+                <button class="telegram-btn">JOIN TELEGRAM</button>
+            </a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
