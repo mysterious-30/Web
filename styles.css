@@ -1,0 +1,302 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #0f0f0f;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.login-box {
+    background-color: #1f1f1f;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+}
+
+.login-box h2 {
+    color: #fff;
+    margin-bottom: 25px;
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #333;
+    border: 2px solid #fc0;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.login-box input:focus {
+    outline: none;
+    border-color: #ffd700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.login-box button {
+    width: 100%;
+    padding: 15px;
+    background-color: #fc0;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-box button:hover {
+    background-color: #ffd700;
+    transform: translateY(-2px);
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    max-height: 100vh;
+    padding: 25px;
+    border: 2px solid #fc0;
+    background-color: #0f0f0f;
+    text-align: center;
+    border-radius: 15px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+    margin-bottom: 30px;
+    animation: slideDown 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 255, 0.3);
+    border: 2px solid var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: transparent;
+    padding: 5px;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.header-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 255, 0.4);
+}
+
+h1 {
+    color: #dfff00;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(223, 255, 0, 0.3);
+}
+
+p {
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.copyright {
+    color: #f33;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+select {
+    width: 100%;
+    padding: 15px;
+    background-color: #181a20;
+    color: #fc0;
+    border: 2px solid #fc0;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: box-shadow 0.3s cubic-bezier(.4,2,.6,1), border-color 0.3s cubic-bezier(.4,2,.6,1), background 0.3s cubic-bezier(.4,2,.6,1);
+    box-shadow: 0 0 0 0 rgba(0,0,0,0);
+    outline: none;
+    appearance: none;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0;
+}
+
+select:focus, select:hover {
+    border-color: #00f0ff;
+    box-shadow: 0 0 12px 2px #00f0ff44, 0 0 0 4px #fc0 inset;
+    background: linear-gradient(90deg, #181a20 80%, #00f0ff22 100%);
+    color: #fff;
+}
+
+select option {
+    background: #181a20;
+    color: #fc0;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 10px;
+    transition: background 0.2s, color 0.2s;
+}
+
+select option:hover, select option:focus {
+    background: #00f0ff;
+    color: #181a20;
+}
+
+/* Custom dropdown arrow */
+select {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23fc0" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 24px 24px;
+}
+
+/* Animation for dropdown opening (simulate with focus/hover) */
+select:focus, select:hover {
+    animation: neon-glow 0.4s;
+}
+
+@keyframes neon-glow {
+    0% { box-shadow: 0 0 0 0 #00f0ff44; }
+    100% { box-shadow: 0 0 12px 2px #00f0ff44; }
+}
+
+.signal-display {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 0;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.timer-container {
+    background-color: #1f1f1f;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #fc0;
+}
+
+#timer {
+    font-size: 32px;
+    color: #fc0;
+    font-weight: 700;
+    font-family: monospace;
+}
+
+.direction-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #1f1f1f;
+    color: #fc0;
+    border: 2px solid #fc0;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #1f1f1f;
+    color: #fc0;
+    border: 2px solid #fc0;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+    background-color: #fc0;
+    color: #000;
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.get-signal {
+    background-color: #fc0;
+    color: #000;
+    border: none;
+}
+
+.get-signal:hover {
+    background-color: #ffd700;
+}
+
+.telegram-btn {
+    background-color: #0088cc;
+    color: #fff;
+    border: none;
+}
+
+.telegram-btn:hover {
+    background-color: #006699;
+}
+
+.green {
+    background-color: #0c0 !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+.red {
+    background-color: #c00 !important;
+    color: #fff !important;
+    border: none !important;
+} 

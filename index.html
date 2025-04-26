@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Live Signal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="overlay" id="overlay">
+        <div class="login-box">
+            <h2>ENTER A SPECIAL CODE TO USE<br>THE APPLICATION</h2>
+            <input id="codeInput" placeholder="Enter Code" type="password">
+            <button onclick="checkCode()">UNBLOCK</button>
+        </div>
+    </div>
+
+    <div class="container" id="mainContent">
+        <div class="header">
+            <img src="./logo.png" alt="OneClick Logo" class="header-image">
+            <h1>LIVE SIGNAL</h1>
+            <p class="copyright">Copyright @OneClickYt</p>
+        </div>
+
+        <div class="controls">
+            <select id="broker-select">
+                <option value="" disabled selected>SELECT BROKER</option>
+                <option value="quotex">Quotex</option>
+                <option value="pocketoption">Pocket Option</option>
+                <option value="iqoption">IQ Option</option>
+                <option value="expertoption">Expert Option</option>
+                <option value="binarycent">BinaryCent</option>
+                <option value="binomo">Binomo</option>
+                <option value="olymptrade">Olymptrade</option>
+                <option value="raceoption">RaceOption</option>
+                <option value="binary">Binary.com</option>
+                <option value="deriv">Deriv</option>
+            </select>
+
+            <select id="asset-select">
+                <option value="" disabled selected>SELECT ASSET</option>
+            </select>
+
+            <select id="time-select">
+                <option value="" disabled selected>SELECT INTERVAL</option>
+                <option value="1">1 MINUTE</option>
+                <option value="5">5 MINUTES</option>
+                <option value="10">10 MINUTES</option>
+                <option value="15">15 MINUTES</option>
+            </select>
+
+            <div class="signal-display" id="signalDisplay" style="display: none;">
+                <div class="timer-container">
+                    <div id="timer">00:00</div>
+                </div>
+                <button id="direction" class="direction-btn">DIRECTION</button>
+            </div>
+
+            <button class="get-signal" onclick="getSignal()">GET SIGNAL</button>
+            <a href="https://t.me/OneClickYT" target="_blank">
+                <button class="telegram-btn">JOIN TELEGRAM</button>
+            </a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
